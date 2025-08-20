@@ -1,0 +1,44 @@
+/* HEADER - START */
+
+/* --- FadeIn animation --- */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.header-content h1,
+.header-content .intro,
+.header-content .btn1 {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* delays for staggered effect */
+.header-content .intro:nth-of-type(1) { animation-delay: 0.2s; }
+.header-content h1 { animation-delay: 0.3s; }
+.header-content .intro:nth-of-type(2) { animation-delay: 0.4s; }
+.header-content .btn1:nth-of-type(1) { animation-delay: 0.7s; }
+.header-content .btn1:nth-of-type(2) { animation-delay: 0.9s; }
+
+/* --- Float animation (applied after fadeIn done) --- */
+@keyframes headerFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.header-content {
+  animation: headerFloat 5s ease-in-out infinite;
+  animation-delay: 1s; /* يبدأ بعد ما يخلصوا fadeIn */
+}
+
+/* HEADER - END */
